@@ -1,0 +1,49 @@
+<app-heading> Product List Component </app-heading>
+<div class="actions">
+    <app-toggle-view [isGridView]="isGridView" (changeView)="changeView($event)"></app-toggle-view>
+    <app-price-filter (filterApplied)="filterApplied($event)"></app-price-filter>
+</div>
+<div class="row product">
+    <!-- Grid View -->
+    <ng-container *ngIf="isGridView">
+        <div class="col-md-3 col-sm-6 col-xs-12" *ngFor="let product of productList">
+            <div class="card shadow product__tile">
+                <img class="card-img-top" [src]="product.image"/>
+                <div class="card-body">
+                    <div class="card-title">
+                        <span class="title">
+                            {{ product.title }}
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        <span class="price"><strong>{{ product.price}}</strong></span>
+                    </div>
+                    <div class="card-text">
+                        <p>{{ product.description | slice:0:80 }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <!-- List View -->
+    <ng-container *ngIf="!isGridView">
+        <div class="col-6" *ngFor="let product of productList">
+            <div class="product__tile list">
+                <img class="card-img-top" [src]="product.image"/>
+                <div class="card-body">
+                    <div class="card-title">
+                        <span class="title">
+                            {{ product.title }}
+                        </span>
+                    </div>
+                    <div class="card-title">
+                        <span class="price"><strong>{{ product.price}}</strong></span>
+                    </div>
+                    <div class="card-text">
+                        <p>{{ product.description | slice:0:80 }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

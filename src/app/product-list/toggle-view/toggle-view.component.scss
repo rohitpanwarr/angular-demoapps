@@ -1,0 +1,12 @@
+.toggle-view {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    .active {
+        background-color:blue;
+        svg {
+            fill: white;
+        }
+    }
+}

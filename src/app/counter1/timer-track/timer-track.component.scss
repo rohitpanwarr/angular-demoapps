@@ -1,0 +1,9 @@
+.timer-track {
+    padding: 20px;
+
+    &__items,
+    &__log {
+        height: 120px;
+        overflow: auto;
+    }
+}

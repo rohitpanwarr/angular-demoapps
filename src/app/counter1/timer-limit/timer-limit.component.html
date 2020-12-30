@@ -1,0 +1,15 @@
+<div class="timer-limit">
+    <form class="timer-limit__form" name="timer-form" (submit)="onSubmitStart($event)">
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label timer-limit__form--label" for="timerLimitInput">Enter timer limit</label>
+            <input type="number" class="form-control col-sm-6 timer-limit__form--input" name="timerLimit" id="timerLimitInput" placeholder="Enter timer limit">
+        </div>
+        <button type="submit" name="startCounter" class="btn btn-primary mb-2 timer-limit__form--start">Start / Pause</button>
+        <button type="button" name="resetCounter" (click)="onClickReset()" class="btn btn-primary mb-2 timer-limit__form--reset">Reset</button>
+    </form>
+    <div class="timer-limit__status">
+        <ul class="list-unstyled timer-log">
+            <li class="timer-log__item"></li>
+        </ul>
+    </div>
+</div>

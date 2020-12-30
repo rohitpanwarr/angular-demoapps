@@ -1,0 +1,25 @@
+<app-heading>
+    Counter Application
+</app-heading>
+<div class="counter shadow">
+    <div class="row">
+        <div class="col-6">
+            <app-count-down [counter]="timer.counter"></app-count-down>
+        </div>
+        <div class="col-6">
+            <app-timer-limit
+                [timer]="timer"
+                (startTimer)="startTimer()"
+                (pauseTimer)="pauseTimer()"
+                (resetTimer)="resetTimer()">
+            </app-timer-limit>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <app-timer-track [timer]="timer"></app-timer-track>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,10 @@
+<div class="timer-track row">
+    <ul class="col-6 list-unstyled timer-track__items">
+        <li class="item" *ngFor="let log of timer.timerTrack">
+            {{ log }}
+        </li>
+    </ul>
+    <div class="col-6 timer-track__log">
+        <div class="timer-track__status" *ngFor="let log of timer.timerLog"> {{ log }} </div>
+    </div>
+</div>
