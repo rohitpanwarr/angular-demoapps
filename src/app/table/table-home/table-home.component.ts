@@ -20,7 +20,7 @@ export class TableHomeComponent implements OnInit {
 
       if (this.studentsList.length) {
         this.studentListKeys = Object.keys(this.studentsList[0]);
-        //this.numberSort(this.studentListKeys[0]); // default sort by user id.
+        this.numberSort(this.studentListKeys[0]); // default sort by user id.
       }
     });
   }
