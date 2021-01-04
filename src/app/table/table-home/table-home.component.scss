@@ -1,5 +1,13 @@
 .table {
     margin-top: 30px;
+    th.active {
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+        svg {
+            fill: white;
+        }
+    }
     .sort-by {
         background-color: transparent;
         border: 0;

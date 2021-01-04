@@ -9,38 +9,70 @@ import { StudentService } from '../student.service';
 export class TableHomeComponent implements OnInit {
   studentsList = [];
   studentListKeys = [];
+  direction = 'asc';
+  sortedColumn = '';
 
   constructor(private studentService: StudentService) { }
 
   ngOnInit(): void {
-    this.studentService.getStudentsList().subscribe((response: any) => {
-      this.studentsList = response;
+    this.studentService.getStudentsList().subscribe((data: any) => {
+      this.studentsList = data.students;
 
       if (this.studentsList.length) {
-        this.studentListKeys = Object.keys(this.studentsList[0]);  
+        this.studentListKeys = Object.keys(this.studentsList[0]);
+        //this.numberSort(this.studentListKeys[0]); // default sort by user id.
       }
     });
   }
 
-  sortBy(target) {
-    const columnType = target.getAttribute('data-type');
-    const reverse = Boolean(target.getAttribute('data-reverse'));
-
-    switch (columnType) {
-      case 'userId':
-
-        if (!reverse) {
-          this.studentsList = this.studentsList.sort(function(a, b) {
-            return a.phoneNumber - b.phoneNumber;
-          });
-        } else {
-          this.studentsList = this.studentsList.sort(function(a, b) {
-            return  b.phoneNumber - a.phoneNumber;
-          });
-        }
+  numberSort(columnType) {
+    if (this.direction == "asc") {
+      this.studentsList = this.studentsList.sort(function(a, b) {
+        return a[columnType] - b[columnType];
+      });
+      this.direction = 'desc';
+    } else {
+      this.studentsList = this.studentsList.sort(function(a, b) {
+        return  b[columnType] - a[columnType];
+      });
+      this.direction = 'asc';
     }
-
-
+    this.sortedColumn = columnType;
   }
 
+  stringSort(columnType) {
+    if (this.direction == "asc") {
+      this.studentsList = this.studentsList.sort(function(a, b) {
+        const nameA = a[columnType].toUpperCase();
+        const nameB = b[columnType].toUpperCase();
+
+        if (nameA < nameB) {
+          return -1;
+        }
+      });
+      this.direction = 'desc';
+    } else {
+      this.studentsList = this.studentsList.sort(function(a, b) {
+        const nameA = a[columnType].toUpperCase();
+        const nameB = b[columnType].toUpperCase();
+
+        if (nameA > nameB) {
+          return -1;
+        }
+      });
+      this.direction = 'asc';
+    }
+    this.sortedColumn = columnType;
+  }
+
+  sortBy(columnType) {
+    if (this.sortedColumn != columnType) {
+      this.direction = 'asc'; // set to default sorting option if another column is clicked.
+    }
+    if (columnType == 'userId' || columnType == 'class') {
+      this.numberSort(columnType);
+    } else {
+      this.stringSort(columnType);
+    }
+  }
 }
