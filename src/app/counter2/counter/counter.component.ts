@@ -50,6 +50,7 @@ export class CounterComponent implements OnInit, OnDestroy {
     this.startSubscription.unsubscribe();
     this.pauseSubscription.unsubscribe();
     this.resetSubscription.unsubscribe();
+    this.clearTimerInterval();
   }
 
   startTimer(counter: number) {

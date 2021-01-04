@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver, ViewChild } from '@angular/core';
+
+import { PlaceholderDirective } from '../placeholder.directive';
+import { DivComponent } from '../div/div.component';
 
 @Component({
   selector: 'app-dynamic-div',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DynamicDivComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild(PlaceholderDirective) divHost: PlaceholderDirective;
+
+  counter: number = 0;
+
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit(): void {
+  }
+
+  showDiv() {
+    const divComponentFactory = this.componentFactoryResolver.resolveComponentFactory(DivComponent);
+    const hostViewContainerRef = this.divHost.viewContainerRef;
+    
+    //hostViewContainerRef.clear();
+    const componentRef = hostViewContainerRef.createComponent(divComponentFactory);
+    componentRef.instance.divCounter = ++this.counter;
+
   }
 
 }
