@@ -1,0 +1,13 @@
+.table {
+    margin-top: 30px;
+    .sort-by {
+        background-color: transparent;
+        border: 0;
+        .icon {
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+    }
+}
