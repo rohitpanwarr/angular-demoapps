@@ -1,0 +1,19 @@
+.timer-limit {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 20px;
+
+    &__form {
+        .form-group {
+            margin-bottom: 20px;
+        }
+        &--start,
+        &--reset {
+            margin-top: 20px;
+            margin-right: 20px;
+        }
+    }
+    &__status {
+        margin: 20px;
+    }
+}

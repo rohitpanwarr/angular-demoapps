@@ -1,0 +1,15 @@
+.timer {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    &__text {
+        font-size: 3rem;
+        font-weight: 700;
+    }
+}
