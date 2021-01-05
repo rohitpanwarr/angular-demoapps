@@ -1,6 +1,9 @@
 <app-heading>Generate Dynamic Divs </app-heading>
-<button (click)="showDiv()" class="btn btn-primary">Click to load Div !! </button>
-<div class="container">
+<button (click)="showDiv()" class="btn btn-primary">Click to load Div's !! </button>
+<div class="container"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    (scrolled)="onScroll()">
     <div class="row">
         <ng-template appPlaceholder></ng-template>
     </div>
