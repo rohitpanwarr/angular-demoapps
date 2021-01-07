@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FloatingTextComponent implements OnInit {
 
+  floating: any = {
+    numberOfDivs: 8,
+    floatingText: "A floating banner text."
+  }
+
   constructor() { }
 
   ngOnInit(): void {

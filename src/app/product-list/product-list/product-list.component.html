@@ -12,14 +12,14 @@
                 <div class="card-body">
                     <div class="card-title">
                         <span class="title">
-                            {{ product.title }}
+                            {{ product.title | ellipsis : 5 }}
                         </span>
                     </div>
                     <div class="card-title">
                         <span class="price"><strong>{{ product.price}}</strong></span>
                     </div>
                     <div class="card-text">
-                        <p>{{ product.description | slice:0:80 }}</p>
+                        <p>{{ product.description | ellipsis : 15 }}</p>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../student.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-table-home',
@@ -12,9 +13,12 @@ export class TableHomeComponent implements OnInit {
   direction = 'asc';
   sortedColumn = '';
 
-  constructor(private studentService: StudentService) { }
+  constructor(
+    private studentService: StudentService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.studentService.getStudentsList().subscribe((data: any) => {
       this.studentsList = data.students;
 
@@ -22,6 +26,7 @@ export class TableHomeComponent implements OnInit {
         this.studentListKeys = Object.keys(this.studentsList[0]);
         this.numberSort(this.studentListKeys[0]); // default sort by user id.
       }
+      this.spinner.hide();
     });
   }
 

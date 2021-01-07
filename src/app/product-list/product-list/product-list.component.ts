@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../product.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -28,20 +29,26 @@ export class ProductListComponent implements OnInit {
         });
         break;
       default:
+        this.spinner.show();
         this.productService.getProducts().subscribe((response) => {
           this.productList = response;  
+          this.spinner.hide();
         });
     }
   }
 
   productList: any = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService,
+    private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.productService.getProducts().subscribe((response: any) => {
       this.productList = response;
-    })
+      this.spinner.hide();
+    });
   }
 
 }
