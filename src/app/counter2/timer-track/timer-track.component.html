@@ -6,6 +6,8 @@
     </ul>
 
     <div class="col-6 timer-track__log">
+        <span class="timer-track__status" *ngIf="started"> Started: {{ started }} </span>
+        <span class="timer-track__status" *ngIf="paused"> Paused: {{ paused }} </span>
         <div class="timer-track__status" *ngFor="let log of timerLog"> {{ log }} </div>
     </div>
 </div>

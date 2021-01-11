@@ -11,6 +11,8 @@ export class TimerTrackComponent implements OnInit, OnDestroy {
 
   timerLog: string[];
   timerTrack: string[];
+  started: number;
+  paused: number;
 
   // Subscription object
   private timeLogSubscription: Subscription;
@@ -21,6 +23,8 @@ export class TimerTrackComponent implements OnInit, OnDestroy {
     this.timeLogSubscription = this.counterService.updateTimeLogsEmitter.subscribe((counterLogs) => {
       this.timerLog = counterLogs.timerLog;
       this.timerTrack = counterLogs.timerTrack;
+      this.started = counterLogs.started;
+      this.paused = counterLogs.paused;
     });
   }
 

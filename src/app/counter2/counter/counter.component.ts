@@ -98,7 +98,9 @@ export class CounterComponent implements OnInit, OnDestroy {
     this.counterService.updateCounterEmitter.next(this.timer.counter);
     this.counterService.updateTimeLogsEmitter.next({
       timerLog: this.timer.timerLog,
-      timerTrack: this.timer.timerTrack
+      timerTrack: this.timer.timerTrack,
+      started: this.timer.started,
+      paused: this.timer.paused
     });
   }
 

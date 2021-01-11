@@ -3,7 +3,9 @@ import { Subject } from 'rxjs';
 
 interface CounterLogs {
   timerLog: string[],
-  timerTrack: string[]
+  timerTrack: string[],
+  started: number,
+  paused: number
 }
 
 @Injectable({
