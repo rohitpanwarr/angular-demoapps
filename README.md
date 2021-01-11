@@ -20,7 +20,7 @@ This project has Six applications which can be run bu clicking on Tabs shown in 
 ##### 1. Floating Text App
 It is rendering a specific pattern in DOM by using Element reference and custom Structural directives.
 
-##### 2. Product list
+##### 2. Product list App
 It is rendering rendering set of product details in either Grid or List view. Views can be toggled from button shown above the list. List can also be sorted using options given in dropdown.
 It is created to demonstrate services and fetching data using XHR calls. 
 
@@ -30,10 +30,10 @@ A Counter application to demonstrate Input and Output feature of Anuglar.
 ##### 4. Counter App 2 
 A Counter application to demonstrate Subject in rxJX.
 
-##### 5. Student List 
+##### 5. Student List App
 It is rendering Student list in tabular form by fetching data json data from an API. Student data can be sorted using table columns. 
 
-##### 6. Dynamic Div
+##### 6. Dynamic Div App
 It is rendering dynamic Divs on Window scroll.
 
 ## Development server
